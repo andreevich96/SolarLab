@@ -3,6 +3,7 @@ package StepsObject;
 import PageObjects.MainRtsPage;
 import PageObjects.ParticipantsPage;
 import PageObjects.Search223_Page;
+import PageObjects.SettingsModal;
 import io.cucumber.java.en.*;
 
 import static com.codeborne.selenide.Selenide.*;
@@ -38,10 +39,51 @@ public class NotificationsSteps {
         element(byXpath(Search223_Page.settings)).click();
     }
 
-    @And("Close browser")
-    public void close_browser () {
-        closeWindow();
-        closeWebDriver();
+    @Then ("Press checkbox eliminate joint procurement")
+    public void press_checkbox_eliminate_joint_procurement () {
+        element(byXpath(SettingsModal.eliminateJointProcurement)).click();
     }
+
+    @Then ("Press checkbox 615-PP RF")
+    public void press_checkbox_615_PP_RF () {
+        element(byXpath(SettingsModal.PP_615RF)).click();
+    }
+
+    @Then ("Press opening modal section date filters")
+    public void press_opening_modal_section_date_filters () {
+        element(byXpath(SettingsModal.modalSectionDateFilters)).click();
+    }
+
+    @And ("Press datepicker application submission to")
+    public void press_datepicker_application_submission_to () {
+        element(byXpath(SettingsModal.applicationSubmissionTo)).click();
+    }
+
+    @And ("Choose today date")
+    public void choose_today_date () {
+        element(byXpath(SettingsModal.todayDate)).click();
+    }
+
+    @Then ("Press opening modal section delivery region")
+    public void press_opening_modal_section_delivery_region () {
+        element(byXpath(SettingsModal.modalSectionDeliveryRegion)).click();
+    }
+
+    @And ("Press checkbox arkhangelsk region")
+    public void press_checkbox_arkhangelsk_region () {
+        element(byXpath(SettingsModal.arkhangelskRegion)).click();
+    }
+
+    @Then ("Press button search")
+    public void press_button_search () {
+        element(byXpath(SettingsModal.search)).click();
+    }
+
+
+//    @And("Close browser")
+//    public void close_browser () {
+//        closeWindow();
+//        closeWebDriver();
+//    }
 
 }
