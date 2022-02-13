@@ -7,7 +7,9 @@ public class SettingsModal {
     public static String applicationSubmissionTo = "//div[text()='ПОДАЧА ЗАЯВОК']/following::div[6]";
     public static String todayDate = "//div[contains(@class, 'today')]";
     public static String modalSectionDeliveryRegion = "//div[text()='Регион поставки']";
-    public static String arkhangelskRegion = "//label[text()='Архангельская область']";
+    public static String altaiRegion = "//label[text()='Алтайский край']";
     public static String search = "//div[contains(@class, 'bottomCenterSearch')]//button";
+    // Для теста. Удалить
+    public static String chooseAll = "//div[text()='Регион поставки']/../../div[@class='modal-settings-row filter-helpers']/a[text()='Выбрать всё']";
 
 }
