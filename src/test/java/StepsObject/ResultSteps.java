@@ -58,7 +58,6 @@ public class ResultSteps extends BaseStep {
         return initialPriceCollection;
     }
 
-
     //Записывает элементы 'Начальная цена' всех извещений на текущей странице в файл InitialPrices.txt
     public void WritePricesToFile(ArrayList<Double> initialPriceCollection, BufferedWriter writer) {
 
@@ -72,10 +71,9 @@ public class ResultSteps extends BaseStep {
         });
     }
 
-
     //Записывает текущую дату и время, добавляет отступы.
     public void WriteInfoToFile(BufferedWriter writer) throws IOException {
-        SimpleDateFormat formatForDateNow = new SimpleDateFormat("E yyyy.MM.dd hh:mm:ss");
+        SimpleDateFormat formatForDateNow = new SimpleDateFormat("E yyyy.MM.dd HH:mm:ss");
 
         writer.write("\nДата и время запуска теста: "
                 + formatForDateNow.format(new Date())

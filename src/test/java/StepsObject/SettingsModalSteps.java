@@ -62,16 +62,16 @@ public class SettingsModalSteps extends BaseStep {
     }
 
     // Для тестирования сценария. Удалить
-    @Then("Active")
-    public void active() {
-        element(byXpath("//div[@class]/label[text()='Активные']")).click();
-    }
+//    @Then("Active")
+//    public void active() {
+//        element(byXpath("//div[@class]/label[text()='Активные']")).click();
+//    }
 
     // Для тестирования сценария. Удалить
-    @Then("User clicks choose all")
-    public void user_clicks_choose_all() {
-        element(byXpath(SettingsModal.chooseAll)).click();
-    }
+//    @Then("User clicks choose all")
+//    public void user_clicks_choose_all() {
+//        element(byXpath(SettingsModal.chooseAll)).click();
+//    }
 
     @Then("User clicks button search")
     public void user_clicks_button_search() {

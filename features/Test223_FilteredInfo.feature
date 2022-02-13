@@ -17,7 +17,7 @@ Feature: Get information about filtered notifications
 #    Then Active
 
 #    Следующий шаг для теста сценария. Удалить
-    Then User clicks choose all
+#    Then User clicks choose all
 
     Then User clicks button search
     Then Autotest is logging initial price value
