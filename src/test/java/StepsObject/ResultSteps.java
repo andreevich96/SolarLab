@@ -13,10 +13,9 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.*;
 
-public class ResultSteps extends BaseStep {
+public class ResultSteps extends LoggerForSteps {
 
     private Logger logger = GetLogger(ResultSteps.class.getName());
 
@@ -42,13 +41,13 @@ public class ResultSteps extends BaseStep {
 
     //Дожидается загрузки страницы.
     public void WaitingPageReload() {
-        element(byXpath(ResultPage.marker)).waitUntil(Condition.not(visible), 10000);
+        ResultPage.getMarker().waitUntil(Condition.not(visible), 10000);
     }
 
     //Получает 'Начальная цена' всех извещений на текущей странице.
     public ArrayList<Double> GetInitialPrices() {
 
-        ElementsCollection initialElementsCollection = $$(elements(byXpath(ResultPage.initialPrice)));
+        ElementsCollection initialElementsCollection = ResultPage.getInitialPrices();
         ArrayList<Double> initialPriceCollection = new ArrayList<>();
         initialElementsCollection.forEach((x) -> {
             double initialPrice = Double.parseDouble(x.getAttribute("content"));
@@ -82,7 +81,7 @@ public class ResultSteps extends BaseStep {
     }
 
     @Then("Autotest is logging initial price value")
-    public void autotest_is_logging_initial_price_value() throws IOException {
+    public void autotestIsLoggingInitialPriceValue() throws IOException {
 
         WaitingPageReload();
 
@@ -95,9 +94,9 @@ public class ResultSteps extends BaseStep {
 
         WritePricesToFile(initialPriceCollection, writer);
 
-        if (element(byXpath(ResultPage.nextButton)).exists()) {
+        if (ResultPage.getNextButton().exists()) {
             do {
-                SelenideElement next = element(byXpath(ResultPage.nextButton));
+                SelenideElement next = ResultPage.getNextButton();
                 next.click();
                 WaitingPageReload();
 
@@ -106,14 +105,18 @@ public class ResultSteps extends BaseStep {
                 int countPageNotices = initialPriceCollection.size();
                 countNotices += countPageNotices;
             }
-            while (element(byXpath(ResultPage.nextButton)).exists());
+            while (ResultPage.getNextButton().exists());
         }
 
         writer.write("Количество извещений: " + countNotices);
         WriteInfoToFile(writer);
         CloseWriter(writer);
 
-        logger.info("Успешно произведена запись 'Начальная цена' всех извещений по заданным параметрам в файл InitialPrices.txt");
+        if (countNotices == 0) {
+            logger.info("Извещения не найдены.");
+        } else {
+            logger.info("Успешно произведена запись 'Начальная цена' всех извещений по заданным параметрам в файл InitialPrices.txt");
+        }
     }
 }
 

@@ -4,7 +4,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "features/Test223_FilteredInfo.feature",
+        features = "features/Test223FilteredInfo.feature",
         glue = "StepsObject"
 )
 public class TestRunner {
