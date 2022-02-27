@@ -25,7 +25,7 @@ public class MainRtsSteps extends LoggerForSteps {
         }
     }
 
-    private final String RtsUrl = readConfig.mainPage;
+    private final String rtsUrl = readConfig.mainPage;
 
     @Given("Open rts-tender.ru")
     public void openRtsTenderRu() {
@@ -35,7 +35,7 @@ public class MainRtsSteps extends LoggerForSteps {
         Configuration.startMaximized = readConfig.startMaximized;
         System.setProperty("webdriver.chrome.driver", "C:\\Program files\\chromedriver.exe");
 
-        open(RtsUrl);
+        open(rtsUrl);
 
         logger.info("Успешный переход по ссылке https://www.rts-tender.ru/");
     }

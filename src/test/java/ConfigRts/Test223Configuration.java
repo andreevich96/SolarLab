@@ -12,6 +12,7 @@ public class Test223Configuration {
     public String browser;
     public boolean holdBrowserOpen;
     public boolean startMaximized;
+    public String search223Page;
 
     public Test223Configuration() throws IOException {
         FileInputStream inputStream = new FileInputStream("src/test/resources/configRTS.properties");
@@ -22,5 +23,6 @@ public class Test223Configuration {
         browser = properties.getProperty("browser");
         holdBrowserOpen = Boolean.parseBoolean(properties.getProperty("holdBrowserOpen"));
         startMaximized = Boolean.parseBoolean(properties.getProperty("startMaximized"));
+        search223Page = properties.getProperty("search223Page");
     }
 }
