@@ -65,10 +65,10 @@ public class SettingsModalSteps extends LoggerForSteps {
 //    }
 
 //    Для тестирования сценария. Удалить
-    @Then("User clicks choose all")
-    public void userClicksChooseAll() {
-        SettingsModal.getChooseAll().click();
-    }
+//    @Then("User clicks choose all")
+//    public void userClicksChooseAll() {
+//        SettingsModal.getChooseAll().click();
+//    }
 
     @Then("User clicks button search")
     public void userClicksButtonSearch() {

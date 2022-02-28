@@ -11,7 +11,7 @@ Feature: Checking purchase numbers in the search
     Then User opening modal section delivery region
     And User clicks checkbox altai region
 #    Следующий шаг для теста сценария. (в случае малого кол-ва извещений). Удалить
-    Then User clicks choose all
+#    Then User clicks choose all
     Then User clicks button search
     Then Autotest collects purchase numbers
     And  Autotest searches for the notification number in the search, comparing the request with the result
